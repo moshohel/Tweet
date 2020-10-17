@@ -3,5 +3,8 @@
 		{
 			"path": "."
 		}
-	]
+	],
+	"settings": {
+		"python.pythonPath": "C:\\Users\\Mohammad Shohel\\.virtualenvs\\tweet-pvjHC3Cq\\Scripts\\python.exe"
+	}
 }

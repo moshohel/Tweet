@@ -5,6 +5,7 @@
 		}
 	],
 	"settings": {
-		"python.pythonPath": "C:\\Users\\Mohammad Shohel\\.virtualenvs\\tweet-pvjHC3Cq\\Scripts\\python.exe"
+		"python.pythonPath": "C:\\Users\\Mohammad Shohel\\.virtualenvs\\tweet-pvjHC3Cq\\Scripts\\python.exe",
+		"python.linting.pylintEnabled": false
 	}
 }

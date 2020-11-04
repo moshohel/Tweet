@@ -2,6 +2,23 @@
 
 {% block content %}
 <h1>Hello, world of Tweet people!!!</h1>
+<script>
+    const xhr = new XMLHttpRequest()
+    const method = 'GET' // Post
+    const url = "/tweets"
+    const responseType = "json"
+
+    xhr.responseType = responseType
+    xhr.open(method, url)
+    xhr.onload = function (){
+        const serverResponse = xhr.response
+        let listedItems = serverResponse.response
+        console.log(listedItems)
+    }
+    xhr.send()
+
+</script>
+
 {% endblock content %}
 
 

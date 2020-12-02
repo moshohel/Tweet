@@ -31,15 +31,20 @@
         const url = myForm.getAttribute("action");
         const method = myForm.getAttribute("method");
         const xhr = new XMLHttpRequest()
+        const responseType = "json"
+        xhr.responseType = responseType
         //console.log(url, method);
         xhr.open(method, url)
         xhr.setRequestHeader("HTTP_X_REQUESTED_WITH", "XMLHttpRequest")
         xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest")
         xhr.onload = function() {
-            const serverResponse = xhr.response
-            console.log(xhr.status, serverResponse)
-            const tweetsEl = document.getElementById("tweets")
-            loadTweets(tweetsEl)
+            if (xhr.status === 201){
+                const newTweet = xhr.response
+                const newTweetElement = formatTweetElement(newTweet)
+                console.log(newTweet.likes)
+                console.log(newTweetElement);
+            }
+
         }
         xhr.send(myFormData)
     }
@@ -48,7 +53,7 @@
 
     tweetCreateFormEl.addEventListener("submit", handleTweetCreateFormDidSubmit);
 
-    const tweetsEl = document.getElementById("tweets")
+    const tweetsContainerElement = document.getElementById("tweets")
 
     const loadTweets = function(tweetsElement) {
         const xhr = new XMLHttpRequest()
@@ -76,7 +81,7 @@
         xhr.send()
     }
 
-    loadTweets(tweetsEl);
+    loadTweets(tweetsContainerElement);
 
     function handleDidLike (tweet_id, currentCount) {
         console.log(tweet_id, currentCount)
